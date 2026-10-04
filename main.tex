@@ -25,7 +25,10 @@
     linkcolor=blue,     
     urlcolor=blue,
     }
-\input{glyphtounicode}
+\ifdefined\pdfgentounicode
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\fi
 %---------- FONT OPTIONS ----------
 % sans-serif
 % \usepackage[sfdefault]{FiraSans}
@@ -61,9 +64,6 @@
 \titleformat{\section}{
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
-% Ensure that generate pdf is machine readable/ATS parsable
-\pdfgentounicode=1
 
 %-------------------------
 % Custom commands
@@ -145,10 +145,11 @@
   \vspace{2pt}
   \resumeSubHeadingListStart
     \small{\item{
-        \textbf{Cloud \& Deployment:}{ AWS (EC2, Lambda, S3, DynamoDB), Azure, Firebase, Docker, Linux} \\ \vspace{3pt}
-        \textbf{Languages:}{ Java, Python, C, C++, C\#, TypeScript/JavaScript, SQL} \\ \vspace{3pt}
-        \textbf{Backend \& Web:}{ PostgreSQL, Redis, Node.js, .NET, React, HTMX, Tailwind CSS} \\ \vspace{3pt}
-        \textbf{ML \& Computing:}{ CUDA, OpenMP, TensorFlow, PyTorch, OpenCV}
+        \textbf{Languages:}{ C, C++, Python, Java, C\#, TypeScript/JavaScript, SQL} \\ \vspace{3pt}
+        \textbf{Systems \& Tools:}{ x86 assembly, CUDA, OpenMP, Linux, GDB, CMake, Flex, Docker} \\ \vspace{3pt}
+        \textbf{Backend \& Data:}{ PostgreSQL, Redis, Node.js, .NET, DynamoDB} \\ \vspace{3pt}
+        \textbf{Cloud \& Web:}{ AWS (EC2, Lambda, S3), Azure, Firebase, React, HTMX, Tailwind CSS} \\ \vspace{3pt}
+        \textbf{ML \& Computer Vision:}{ TensorFlow, PyTorch, OpenCV}
     }}
   \resumeSubHeadingListEnd
 %----------- WORK EXPERIENCE -----------
@@ -159,20 +160,20 @@
       {Docspot}{San Jose, California}
       {Backend Engineer 	\textbar{} Java, Python, Linux}{November 2025 \textbf{--} Present}
         \resumeItemListStart
-            \resumeItem{Developed a web crawler to collect healthcare provider data from major news publishers and improve provider profiles.}
-            \resumeItem{Implemented a point-based matching system to link provider records to government datasets, improving data completeness and attribution.}
-            \resumeItem{Created a validation and cleaning pipeline to standardize provider attributes and reduce incorrect records.}
-            \resumeItem{Designed a regression test harness to check scraping and parsing logic.}
-            \resumeItem{Tuned attribute matching weights with Bayesian optimization, improving provider extraction accuracy by 8\% across multiple datasets.}
+            \resumeItem{Built a regression test harness to check web scraping and parsing logic.}
             \resumeItem{Standardized CLI guidelines and argument parsing to improve team workflows.}
+            \resumeItem{Tuned attribute matching weights with Bayesian optimization, improving provider extraction accuracy by 8\% across multiple datasets.}
+            \resumeItem{Developed a web crawler to collect healthcare provider data from major news publishers and improve provider profiles.}
+            \resumeItem{Built a point-based matching system to link provider records to government datasets, improving data completeness and attribution.}
+            \resumeItem{Created a validation and cleaning pipeline to standardize provider attributes and reduce incorrect records.}
         \resumeItemListEnd
     \resumeSubheading
       {Odoo}{Buffalo, New York}
       {Full Stack Developer Intern 	\textbar{} Python, JavaScript, PostgreSQL}{June 2023 \textbf{--} September 2023}
         \resumeItemListStart
-            \resumeItem{Implemented a 4-4-5 accounting schedule module so businesses could manage custom fiscal periods and improve reporting accuracy.}
-            \resumeItem{Optimized SQL queries and database access to improve fiscal schedule data retrieval.}
             \resumeItem{Wrote unit tests with 90\% coverage for default modules used in client solutions and refactored code for easier maintenance.}
+            \resumeItem{Optimized SQL queries and database access to improve fiscal schedule data retrieval.}
+            \resumeItem{Implemented a 4-4-5 accounting schedule module so businesses could manage custom fiscal periods and improve reporting accuracy.}
         \resumeItemListEnd
     \resumeSubHeadingListEnd 
 %----------- PROJECTS -----------
@@ -181,16 +182,16 @@
     \vspace{3pt}   
     \resumeSubHeadingListStart
     \resumeProjectHeading
-        {\href{https://github.com/8coolguy/leaderboard_app}{\textbf{Virtual Cycling Leaderboard}} 	\textbar{} \emph{Azure, Firebase, Docker, .NET, Python}}{}
-          \resumeItemListStart
-            \resumeItem{Connected riders in virtual cycling rooms through BLE sensors to share speed, distance, heart rate, and cadence in real time.}
-            \resumeItem{Deployed a .NET API service that converts rider stats into downloadable FIT files for sports tracking apps.}
-          \resumeItemListEnd   
+        {\textbf{Simple C Compiler} 	\textbar{} \emph{C++, Flex, x86 assembly}}{}
+        \resumeItemListStart
+            \resumeItem{Built a top-down parser that compiles a subset of C into x86 assembly.}
+            \resumeItem{Used Flex to tokenize C code and supported integer and floating-point arithmetic.}
+        \resumeItemListEnd
      \resumeProjectHeading
         {\href{https://github.com/8coolguy/distributed-backpropagation}{\textbf{Deep Neural Network Library}} 	\textbar{} \emph{C++, CUDA, OpenMP }}{}
         \resumeItemListStart
             \resumeItem{Designed a C++ neural network library with a PyTorch-like API and multiple activation and cost functions for ML experiments.}
-            \resumeItem{Wrote CUDA kernels for matrix operations and compared serial, parallel CPU, and GPU training, achieving a 6x speedup.}
+            \resumeItem{Wrote CUDA matrix kernels and compared serial CPU, OpenMP, and GPU training, achieving a 6x speedup.}
         \resumeItemListEnd
     \resumeProjectHeading
         {\href{https://github.com/8coolguy/cmd-find}{\textbf{Command Finder with MCP}} 	\textbar{} \emph{Python, unittest, MCP}}{}
@@ -211,9 +212,8 @@
       \resumeItemListStart
         \resumeItem{\textbf{Activities:} President of Triathlon Club}
         \resumeItem{\textbf{Awards:} 2022 Santa Clara Inrix Hackathon Winner, 2024 Collegiate Triathlon All-American}
+        \resumeItem{\textbf{Coursework:} Compilers, Operating Systems, Advanced Algorithms}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
 
 \end{document}
-
-
